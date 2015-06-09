@@ -1,12 +1,10 @@
-let create = () => {
-	let style = { FONT: "32px monospace", fill: "#fff"};
-	game.add.text(200, 200, "Badass Phaser ES6", style);
-}
+let game = new Phaser.Game(640, 480, Phaser.AUTO);
 
-let game = new Phaser.Game(
-	640, 
-	480,
-	Phaser.AUTO,
-	null,
-	{create}
-)
+import Boot from './Boot'
+import Preload from './Preload'
+import Intro from './Intro'
+
+game.state.add('boot', Boot);
+game.state.add('preload', Preload);
+game.state.add('intro', Intro);
+game.state.start('boot');
